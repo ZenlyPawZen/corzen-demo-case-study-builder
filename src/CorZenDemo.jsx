@@ -17,7 +17,7 @@ const steps = [
     altText: 'CorZen weekly focus kanban board showing Build Case Study task in the In Progress column',
     title: 'Step 1',
     description: 'The wrench icon indicates that this task can be completed for you. Click anywhere on the card to see more details.',
-    hotspot: { top: '27%', left: '67%', align: 'center' },
+    hotspot: { top: '18%', left: '67%', align: 'center' },
   },
   {
     slug: 'agents/build-case-study/detail',
