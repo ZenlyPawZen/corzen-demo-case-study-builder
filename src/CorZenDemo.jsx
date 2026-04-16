@@ -217,16 +217,9 @@ const CorZenDemo = () => {
 
   return (
     <div className="rounded-xl bg-white overflow-hidden max-w-4xl mx-auto font-sans" style={{ border: '3px solid #0f172a', boxShadow: '0 8px 32px rgba(0,0,0,0.18)' }}>
-      {/* Browser Chrome */}
-      <div className="bg-slate-50 border-b border-slate-200 p-3 flex items-center gap-3">
-        <div className="flex gap-1.5 shrink-0">
-          <div className="w-3 h-3 rounded-full bg-red-400" />
-          <div className="w-3 h-3 rounded-full bg-yellow-400" />
-          <div className="w-3 h-3 rounded-full bg-green-400" />
-        </div>
-        <div className="mx-auto bg-white border border-slate-200 rounded-md px-4 py-1 text-xs text-slate-400 w-2/3 text-center truncate">
-          corzenhub.com/{step.slug}
-        </div>
+      {/* Header */}
+      <div className="bg-slate-50 border-b border-slate-200 p-3 flex items-center justify-center">
+        <span className="font-bold text-slate-900 text-sm tracking-tight">Agent Demo to Build Case Studies</span>
       </div>
 
       {/* Main Stage */}
