@@ -25,7 +25,7 @@ const steps = [
     altText: 'Build Case Study task detail modal showing description and Run agent button',
     title: 'Step 2',
     description: 'Open the task to review the brief, then click Run agent to hand it off to AI.',
-    hotspot: { top: '57%', left: '78%', align: 'right' },
+    hotspot: { top: '33%', left: '45%', align: 'center' },
   },
   {
     slug: 'agents/build-case-study/running',
@@ -64,7 +64,7 @@ const IntroCallout = ({ step, onNext }) => (
       position: 'absolute', inset: 0,
       background: 'rgba(15, 23, 42, 0.45)',
     }} />
-    {/* Centered card */}
+    {/* Centered card — matches regular callout styling */}
     <motion.div
       initial={{ opacity: 0, scale: 0.95 }}
       animate={{ opacity: 1, scale: 1 }}
@@ -73,25 +73,26 @@ const IntroCallout = ({ step, onNext }) => (
       style={{
         position: 'absolute', top: '50%', left: '50%',
         transform: 'translate(-50%, -50%)',
-        background: 'white',
+        background: '#DBEAFE',
         borderRadius: '16px',
-        padding: '28px 32px',
-        width: '320px',
+        border: '1px solid #93c5fd',
+        padding: '28px 20%',
+        width: '360px',
         textAlign: 'center',
-        boxShadow: '0 24px 48px rgba(0,0,0,0.2)',
+        boxShadow: '0 8px 32px rgba(147,197,253,0.7), 0 2px 8px rgba(0,0,0,0.08)',
       }}
     >
       <h2 style={{ fontSize: '18px', fontWeight: 700, color: '#0f172a', margin: '0 0 10px' }}>
         {step.title}
       </h2>
-      <p style={{ fontSize: '13px', lineHeight: '1.6', color: '#475569', margin: '0 0 20px' }}>
+      <p style={{ fontSize: '14px', lineHeight: '1.6', color: '#0f172a', margin: '0 0 20px' }}>
         {step.description}
       </p>
-      <div style={{ borderTop: '1px solid #f1f5f9', paddingTop: '16px' }}>
+      <div style={{ borderTop: '1px solid #93c5fd', paddingTop: '16px' }}>
         <button
           onClick={onNext}
           style={{
-            fontSize: '13px', fontWeight: 600, color: '#3b82f6',
+            fontSize: '13px', fontWeight: 600, color: '#1e40af',
             background: 'none', border: 'none', padding: 0, cursor: 'pointer',
           }}
         >
@@ -136,8 +137,8 @@ const Callout = ({ step, onBack, onNext, onRestart, isFirst, isLast }) => {
         transition={{ duration: 2.8, repeat: Infinity, ease: 'easeInOut' }}
         style={{
           background: '#DBEAFE', borderRadius: '12px',
-          border: '1px solid #93c5fd', padding: '12px 16px',
-          width: '220px', pointerEvents: 'auto',
+          border: '1px solid #93c5fd', padding: '16px 20%',
+          width: '260px', pointerEvents: 'auto',
         }}
       >
         <p style={{ fontSize: '14px', lineHeight: '1.5', color: '#0f172a', margin: 0 }}>
