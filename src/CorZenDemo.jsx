@@ -71,8 +71,8 @@ const IntroCallout = ({ step, onNext }) => (
       exit={{ opacity: 0, scale: 0.95 }}
       transition={{ duration: 0.3, ease: 'easeOut' }}
       style={{
-        position: 'absolute', top: '50%', left: '50%',
-        transform: 'translate(-50%, -50%)',
+        position: 'absolute', top: '40%', left: '10%',
+        transform: 'translate(0, -50%)',
         background: '#DBEAFE',
         borderRadius: '16px',
         border: '1px solid #93c5fd',
