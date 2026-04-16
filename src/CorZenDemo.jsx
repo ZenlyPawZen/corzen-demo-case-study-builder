@@ -215,12 +215,8 @@ const CorZenDemo = () => {
   const isFirst = currentStep === 0;
   const isLast = currentStep === steps.length - 1;
 
-  // Dots exclude the intro slide
-  const dotSteps = steps.filter((s) => !s.intro);
-  const dotIndex = currentStep - 1;
-
   return (
-    <div className="rounded-xl border border-slate-200 bg-white shadow-2xl overflow-hidden max-w-4xl mx-auto font-sans">
+    <div className="rounded-xl bg-white overflow-hidden max-w-4xl mx-auto font-sans" style={{ border: '3px solid #0f172a', boxShadow: '0 8px 32px rgba(0,0,0,0.18)' }}>
       {/* Browser Chrome */}
       <div className="bg-slate-50 border-b border-slate-200 p-3 flex items-center gap-3">
         <div className="flex gap-1.5 shrink-0">
@@ -295,31 +291,6 @@ const CorZenDemo = () => {
         )}
       </div>
 
-      {/* Footer */}
-      <div className="px-5 py-4 bg-white flex items-center justify-between gap-4 border-t border-slate-100">
-        <div className="flex-1 min-w-0">
-          <h3 className="font-bold text-slate-900 text-sm">{step.title}</h3>
-          <p className="text-sm text-slate-500 mt-0.5 leading-snug">{step.description}</p>
-        </div>
-
-        {/* Dots — only for the 4 demo steps, not the intro */}
-        {!step.intro && (
-          <div className="flex items-center gap-1.5 shrink-0">
-            {dotSteps.map((_, i) => (
-              <button
-                key={i}
-                onClick={() => setCurrentStep(i + 1)}
-                aria-label={`Go to step ${i + 1}`}
-                className={`rounded-full transition-all duration-200 focus:outline-none ${
-                  i === dotIndex
-                    ? 'w-5 h-2 bg-blue-500'
-                    : 'w-2 h-2 bg-slate-300 hover:bg-slate-400'
-                }`}
-              />
-            ))}
-          </div>
-        )}
-      </div>
     </div>
   );
 };
