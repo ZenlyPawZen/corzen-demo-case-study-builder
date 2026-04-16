@@ -128,29 +128,29 @@ const Callout = ({ step, onBack, onNext, onRestart, isFirst, isLast }) => {
       <motion.div
         animate={{
           boxShadow: [
-            '0 4px 16px rgba(37,99,235,0.35), 0 1px 4px rgba(37,99,235,0.2)',
-            '0 8px 28px rgba(37,99,235,0.65), 0 2px 8px rgba(37,99,235,0.35)',
-            '0 4px 16px rgba(37,99,235,0.35), 0 1px 4px rgba(37,99,235,0.2)',
+            '0 4px 16px rgba(147,197,253,0.5), 0 1px 4px rgba(0,0,0,0.06)',
+            '0 8px 28px rgba(147,197,253,0.9), 0 2px 8px rgba(0,0,0,0.08)',
+            '0 4px 16px rgba(147,197,253,0.5), 0 1px 4px rgba(0,0,0,0.06)',
           ],
         }}
         transition={{ duration: 2.8, repeat: Infinity, ease: 'easeInOut' }}
         style={{
-          background: '#2563EB', borderRadius: '12px',
-          border: '1px solid #1d4ed8', padding: '12px 16px',
+          background: '#DBEAFE', borderRadius: '12px',
+          border: '1px solid #93c5fd', padding: '12px 16px',
           width: '220px', pointerEvents: 'auto',
         }}
       >
-        <p style={{ fontSize: '12px', lineHeight: '1.5', color: 'white', margin: 0 }}>
+        <p style={{ fontSize: '14px', lineHeight: '1.5', color: '#0f172a', margin: 0 }}>
           {step.description}
         </p>
-        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginTop: '10px', paddingTop: '10px', borderTop: '1px solid rgba(255,255,255,0.2)' }}>
+        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginTop: '10px', paddingTop: '10px', borderTop: '1px solid #93c5fd' }}>
           <button
             onClick={onBack}
             disabled={isFirst}
             style={{
               display: 'flex', alignItems: 'center', gap: '3px',
-              fontSize: '11px', fontWeight: 600,
-              color: isFirst ? 'rgba(255,255,255,0.3)' : 'rgba(255,255,255,0.8)',
+              fontSize: '13px', fontWeight: 600,
+              color: isFirst ? '#93c5fd' : '#1e40af',
               background: 'none', border: 'none', padding: 0,
               cursor: isFirst ? 'default' : 'pointer',
             }}
@@ -160,7 +160,7 @@ const Callout = ({ step, onBack, onNext, onRestart, isFirst, isLast }) => {
           {isLast ? (
             <button
               onClick={onRestart}
-              style={{ fontSize: '11px', fontWeight: 600, color: 'white', background: 'none', border: 'none', padding: 0, cursor: 'pointer' }}
+              style={{ fontSize: '13px', fontWeight: 600, color: '#0f172a', background: 'none', border: 'none', padding: 0, cursor: 'pointer' }}
             >
               Restart
             </button>
@@ -169,7 +169,7 @@ const Callout = ({ step, onBack, onNext, onRestart, isFirst, isLast }) => {
               onClick={onNext}
               style={{
                 display: 'flex', alignItems: 'center', gap: '3px',
-                fontSize: '11px', fontWeight: 600, color: 'white',
+                fontSize: '13px', fontWeight: 600, color: '#1e40af',
                 background: 'none', border: 'none', padding: 0, cursor: 'pointer',
               }}
             >
@@ -183,9 +183,9 @@ const Callout = ({ step, onBack, onNext, onRestart, isFirst, isLast }) => {
       <div style={{
         width: 0, height: 0,
         borderLeft: '7px solid transparent', borderRight: '7px solid transparent',
-        borderTop: '7px solid #2563EB',
+        borderTop: '7px solid #DBEAFE',
         margin: '0 auto', position: 'relative', zIndex: 1,
-        filter: 'drop-shadow(0 2px 2px rgba(37,99,235,0.4))',
+        filter: 'drop-shadow(0 2px 2px rgba(147,197,253,0.6))',
         marginLeft: step.hotspot.align === 'right' ? 'calc(82% - 7px)' : 'auto',
       }} />
 
