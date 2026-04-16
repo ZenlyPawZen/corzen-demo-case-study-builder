@@ -217,7 +217,7 @@ const CorZenDemo = () => {
   const isLast = currentStep === steps.length - 1;
 
   return (
-    <div style={{ background: '#DBEAFE', padding: '100px 70px' }}>
+    <div style={{ background: '#DBEAFE', padding: '100px 70px', width: 'fit-content', margin: '0 auto' }}>
     <div className="rounded-xl bg-white overflow-hidden max-w-4xl mx-auto font-sans" style={{ border: '3px solid #0f172a', boxShadow: '0 8px 32px rgba(0,0,0,0.18)' }}>
       {/* Header */}
       <div className="bg-slate-50 border-b border-slate-200 p-3 flex items-center justify-center">
