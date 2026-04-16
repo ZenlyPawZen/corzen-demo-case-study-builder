@@ -36,7 +36,7 @@ const steps = [
   },
 ];
 
-const Callout = ({ step }) => {
+const Callout = ({ step, onBack, onNext, onRestart, isFirst, isLast }) => {
   if (!step.hotspot) return null;
 
   const xOffset = step.hotspot.align === 'right' ? '-82%' : '-50%';
@@ -75,11 +75,50 @@ const Callout = ({ step }) => {
           border: '1px solid #e2e8f0',
           padding: '12px 16px',
           width: '220px',
+          pointerEvents: 'auto',
         }}
       >
         <p style={{ fontSize: '12px', lineHeight: '1.5', color: '#334155', margin: 0 }}>
           {step.description}
         </p>
+        {/* Back / Next inside callout */}
+        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginTop: '10px', paddingTop: '10px', borderTop: '1px solid #f1f5f9' }}>
+          <button
+            onClick={onBack}
+            disabled={isFirst}
+            style={{
+              display: 'flex', alignItems: 'center', gap: '3px',
+              fontSize: '11px', fontWeight: 600,
+              color: isFirst ? '#cbd5e1' : '#64748b',
+              background: 'none', border: 'none', padding: 0, cursor: isFirst ? 'default' : 'pointer',
+            }}
+          >
+            <ChevronLeft /> Back
+          </button>
+          {isLast ? (
+            <button
+              onClick={onRestart}
+              style={{
+                display: 'flex', alignItems: 'center', gap: '3px',
+                fontSize: '11px', fontWeight: 600,
+                color: '#0f172a', background: 'none', border: 'none', padding: 0, cursor: 'pointer',
+              }}
+            >
+              Restart
+            </button>
+          ) : (
+            <button
+              onClick={onNext}
+              style={{
+                display: 'flex', alignItems: 'center', gap: '3px',
+                fontSize: '11px', fontWeight: 600,
+                color: '#3b82f6', background: 'none', border: 'none', padding: 0, cursor: 'pointer',
+              }}
+            >
+              Next <ChevronRight />
+            </button>
+          )}
+        </div>
       </motion.div>
 
       {/* Arrow tip pointing down */}
@@ -169,8 +208,46 @@ const CorZenDemo = () => {
         </AnimatePresence>
 
         <AnimatePresence mode="wait">
-          <Callout key={`callout-${currentStep}`} step={step} />
+          <Callout
+            key={`callout-${currentStep}`}
+            step={step}
+            onBack={goBack}
+            onNext={goNext}
+            onRestart={restart}
+            isFirst={isFirst}
+            isLast={isLast}
+          />
         </AnimatePresence>
+
+        {/* Last step has no hotspot — show nav in corner */}
+        {isLast && (
+          <motion.div
+            initial={{ opacity: 0, y: 8 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.3 }}
+            style={{
+              position: 'absolute', bottom: '16px', right: '16px',
+              background: 'white', borderRadius: '12px',
+              border: '1px solid #e2e8f0', padding: '10px 14px',
+              display: 'flex', alignItems: 'center', gap: '12px',
+              boxShadow: '0 4px 16px rgba(0,0,0,0.08)',
+            }}
+          >
+            <button
+              onClick={goBack}
+              style={{ display: 'flex', alignItems: 'center', gap: '3px', fontSize: '11px', fontWeight: 600, color: '#64748b', background: 'none', border: 'none', padding: 0, cursor: 'pointer' }}
+            >
+              <ChevronLeft /> Back
+            </button>
+            <div style={{ width: '1px', height: '12px', background: '#e2e8f0' }} />
+            <button
+              onClick={restart}
+              style={{ fontSize: '11px', fontWeight: 600, color: '#0f172a', background: 'none', border: 'none', padding: 0, cursor: 'pointer' }}
+            >
+              Restart
+            </button>
+          </motion.div>
+        )}
       </div>
 
       {/* Footer */}
@@ -199,41 +276,6 @@ const CorZenDemo = () => {
             ))}
           </div>
 
-          {/* Back / Next buttons */}
-          <div className="flex items-center gap-2 ml-2">
-            <button
-              onClick={goBack}
-              disabled={isFirst}
-              aria-label="Back"
-              className={`flex items-center gap-1 px-3 py-1.5 rounded-lg border text-sm font-medium transition-colors focus:outline-none ${
-                isFirst
-                  ? 'border-slate-100 text-slate-300 cursor-not-allowed'
-                  : 'border-slate-200 text-slate-600 hover:bg-slate-50 hover:border-slate-300'
-              }`}
-            >
-              <ChevronLeft />
-              Back
-            </button>
-
-            {isLast ? (
-              <button
-                onClick={restart}
-                aria-label="Restart demo"
-                className="flex items-center gap-1 px-3 py-1.5 rounded-lg bg-slate-900 text-white text-sm font-medium hover:bg-slate-700 transition-colors focus:outline-none"
-              >
-                Restart
-              </button>
-            ) : (
-              <button
-                onClick={goNext}
-                aria-label="Next"
-                className="flex items-center gap-1 px-3 py-1.5 rounded-lg bg-blue-500 text-white text-sm font-medium hover:bg-blue-600 transition-colors focus:outline-none"
-              >
-                Next
-                <ChevronRight />
-              </button>
-            )}
-          </div>
         </div>
       </div>
     </div>
