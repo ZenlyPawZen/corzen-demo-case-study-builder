@@ -69,7 +69,7 @@ const IntroCallout = ({ step, onNext }) => (
       initial={{ opacity: 0, scale: 0.95 }}
       animate={{ opacity: 1, scale: 1 }}
       exit={{ opacity: 0, scale: 0.95 }}
-      transition={{ duration: 0.3, ease: 'easeOut' }}
+      transition={{ duration: 0.3, ease: 'easeOut', delay: 0.3 }}
       style={{
         position: 'absolute', top: '40%', left: '10%',
         transform: 'translate(0, -50%)',
@@ -123,8 +123,8 @@ const Callout = ({ step, onBack, onNext, onRestart, isFirst, isLast }) => {
       initial={{ opacity: 0, y: 6 }}
       animate={{ opacity: 1, y: [0, -5, 0] }}
       transition={{
-        opacity: { duration: 0.3 },
-        y: { duration: 2.8, repeat: Infinity, ease: 'easeInOut' },
+        opacity: { duration: 0.3, delay: 0.3 },
+        y: { duration: 2.8, repeat: Infinity, ease: 'easeInOut', delay: 0.3 },
       }}
     >
       <motion.div
