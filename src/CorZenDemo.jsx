@@ -160,12 +160,14 @@ const Callout = ({ step, onBack, onNext, onRestart, isFirst, isLast }) => {
             <ChevronLeft /> Back
           </button>
           {isLast ? (
-            <button
-              onClick={onRestart}
-              style={{ fontSize: '13px', fontWeight: 600, color: '#0f172a', background: 'none', border: 'none', padding: 0, cursor: 'pointer' }}
+            <a
+              href="https://corzenhub.com/start/"
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{ fontSize: '13px', fontWeight: 600, color: '#1e40af', textDecoration: 'none' }}
             >
-              Restart
-            </button>
+              Finish demo →
+            </a>
           ) : (
             <button
               onClick={onNext}
